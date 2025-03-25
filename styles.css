@@ -1,0 +1,255 @@
+/* Общие стили */
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стили для навигационных ссылок и кнопок */
+nav ul li a,
+nav ul li button {
+    text-decoration: none;
+    color: white;
+    display: flex;           /* Используем flex для центровки текста */
+    justify-content: center; /* Центровка текста по горизонтали */
+    align-items: center;     /* Центровка текста по вертикали */
+    padding: 18px 36px;      /* Увеличиваем размер кнопок */
+    background-color: blue;
+    border-radius: 8px;      /* Увеличиваем радиус скругления */
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li button:hover {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+/* Вертикальное меню */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin: 12px 0; /* Увеличиваем отступы для улучшения визуального восприятия */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-radius 0.3s, transform 0.2s;
+}
+
+.sidebar ul li a:hover {
+    color: #fff;
+    background-color: #007BFF;
+    border-radius: 20px;
+    transform: scale(1.05);
+}
+
+/* Стили для шапки */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Стили для футера */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Стили для боковой панели */
+.sidebar {
+    width: 20%; /* Сайдбар для больших экранов */
+    background-color: rgb(66, 66, 66);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Стили для контента */
+.content {
+    width: 80%;
+    padding: 20px;
+}
+
+/* Заголовки */
+h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+/* Основной контент */
+.main-content {
+    padding: 20px;
+}
+
+.main-content p {
+    margin: 10px 0;
+}
+
+/* Двухколоночная верстка */
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: auto;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.logo img {
+    height: 50px;
+    margin-left: 10px;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media screen and (max-width: 1024px) {
+    /* Уменьшаем размер сайдбара и контента на планшетах */
+    .sidebar {
+        width: 30%;
+    }
+
+    .content {
+        width: 70%;
+    }
+
+    /* Уменьшаем шрифт логотипа */
+    .logo h1 {
+        font-size: 20px; 
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Продукты располагать по 2 в строку на телефонах */
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Переводим боковую панель в горизонтальное меню сверху */
+    .sidebar {
+        width: 100%; /* Сайдбар будет занимать всю ширину */
+        height: auto; /* Сайдбар будет горизонтальным */
+        flex-direction: row; /* Список элементов будет располагаться горизонтально */
+        justify-content: space-evenly; /* Равномерное распределение элементов */
+    }
+
+    .content {
+        width: 100%; /* Контент займет всю ширину */
+        padding: 10px; /* Уменьшаем отступы для мобильных */
+    }
+
+    .logo h1 {
+        font-size: 16px; /* Уменьшаем размер шрифта логотипа */
+    }
+
+    /* Размещение элементов меню горизонтально */
+    nav ul {
+        display: flex; /* Включаем flexbox */
+        flex-direction: row; /* Размещаем элементы в ряд */
+        flex-wrap: wrap; /* Разрешаем перенос элементов */
+        justify-content: center; /* Выравнивание по центру */
+        margin: 0; /* Убираем отступы */
+        padding: 0; /* Убираем отступы */
+    }
+
+    nav ul li {
+        margin: 5px; /* Добавляем отступы между кнопками */
+    }
+
+    /* Стили для кнопок */
+    nav ul li a, 
+    nav ul li button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Продукты должны занимать 2 в строку на маленьких экранах */
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Сайдбар с меню сверху */
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .content {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .logo h1 {
+        font-size: 14px; /* Дополнительное уменьшение размера шрифта */
+    }
+
+    nav ul li a, 
+    nav ul li button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Стили для кнопки */
+.footer-info a {
+    display: inline-block;
+    padding: 12px 24px; /* Увеличены размеры кнопки */
+    background-color: #0f1e2e; /* Цвет фона */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Более округленные края */
+    font-weight: bold;
+    font-size: 18px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
+}
+
+/* Анимация кнопки при наведении */
+.footer-info a:hover {
+    background-color: #007BFF; /* Цвет фона при наведении */
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5); /* Добавлен эффект тени */
+}

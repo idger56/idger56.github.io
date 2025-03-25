@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS STORE</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение внешнего файла стилей -->
+    <style>
+img {
+    width: 100%;
+    height: 590px; /* фиксированная высота */
+    object-fit: contain; /* сохраняет пропорции */
+    border-radius: 200px;
+}
+
+/* Адаптация для планшетов (максимальная ширина 1024px) */
+@media screen and (max-width: 1024px) {
+    img {
+        height: 450px; /* уменьшаем высоту */
+        border-radius: 150px;
+    }
+}
+
+/* Адаптация для мобильных устройств (максимальная ширина 768px) */
+@media screen and (max-width: 768px) {
+    img {
+        height: 350px; /* еще меньше для мобильных */
+        border-radius: 100px;
+    }
+}
+
+/* Адаптация для маленьких экранов (максимальная ширина 480px) */
+@media screen and (max-width: 480px) {
+    img {
+        height: auto; /* убираем фиксированную высоту, чтобы изображение масштабировалось */
+        max-height: 300px; /* ограничиваем максимальную высоту */
+        border-radius: 50px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <a id="top"></a>
+
+    <header>
+        <div class="logo">
+            <h1>DSS STORE</h1>
+        </div>
+        <div class="logo">
+            <img src="IMAGE/DSS_STORE.png" alt="Логотип DSS STORE">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Товары</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section class="reviews">
+                <img src="IMAGE/DSS_STORE.png" alt="">
+            </section>
+            
+            <section class="main-content">
+                <h2>"Технологии, на которые можно положиться - DSS: ваш проводник в мир электроники!"</h2>
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="margin-top: auto; background-color:  #333; color: white; text-align: center; padding: 10px 0; width: 100%;">
+        <div class="footer-info">
+            <p>Контакты: +375 259-44 35 20</p>
+            <a href="#top" style="display: inline-block; padding: 10px 20px; background-color: #0f1e2ea1; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px;">
+                Перейти в начало страницы
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

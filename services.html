@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS STORE</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение внешнего файла стилей -->
+    <style>
+/* Грид-сетка для продуктов */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* По умолчанию 3 товара в строке */
+    gap: 20px;
+    justify-items: center;
+}
+/* Адаптация грид-сетки */
+@media screen and (max-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr); /* Два товара в строке на экранах планшетов */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr); /* Два товара в строке на телефонах */
+        gap: 15px; /* Уменьшаем промежуток между товарами */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr); /* Два товара в строке на самых маленьких экранах */
+        gap: 10px; /* Еще меньше промежуток */
+    }
+}
+
+
+/* Стили для карточек продуктов */
+.product {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+/* Стили для изображений продуктов */
+.product img {
+    width: 100%;  /* Изображения растягиваются на ширину карточки */
+    height: auto;  /* Высота изображений будет пропорциональной */
+    max-width: 300px; /* Ограничиваем максимальную ширину для больших экранов */
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* Адаптация изображений */
+@media screen and (max-width: 768px) {
+    .product img {
+        max-width: 250px; /* Меньший размер изображения на мобильных устройствах */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product img {
+        max-width: 200px; /* Еще меньше изображение на самых маленьких экранах */
+    }
+
+    .product {
+        width: 90%; /* Уменьшаем ширину карточки */
+        padding: 8px; /* Уменьшаем отступы */
+    }
+}
+
+/* Информация о продукте */
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 14px; /* Уменьшаем размер шрифта */
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    font-size: 14px; /* Уменьшаем размер шрифта */
+}
+
+/* Стили для секции услуг */
+.services {
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптация блока услуг */
+@media screen and (max-width: 1024px) {
+    .services {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .services {
+        max-width: 95%;
+        padding: 10px;
+    }
+}
+/* Общие стили для кнопок */
+nav ul li button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-radius 0.3s, transform 0.2s;
+}
+
+/* Анимация при наведении */
+nav ul li button:hover {
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 20px;
+    transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <a id="top"></a>
+    <script>
+        function scrollToCategory(categoryId) {
+            var element = document.getElementById(categoryId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    </script>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h1>DSS STORE</h1>
+        </div>
+        <div class="logo">
+            <img src="IMAGE/DSS_STORE.png" alt="Логотип DSS STORE">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Товары</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <nav>
+                <ul style="list-style-type: none; padding: 0; margin: 20px 0; text-align: center;">
+                    <li style="display: inline-block; margin: 0 10px;">
+                        <button onclick="scrollToCategory('smartphones')">Смартфоны</button>
+                    </li>
+                    <li style="display: inline-block; margin: 0 10px;">
+                        <button onclick="scrollToCategory('laptops')">Ноутбуки</button>
+                    </li>
+                    <li style="display: inline-block; margin: 0 10px;">
+                        <button onclick="scrollToCategory('tvs')">Телевизоры</button>
+                    </li>
+                    <li style="display: inline-block; margin: 0 10px;">
+                        <button onclick="scrollToCategory('audio')">Наушники и акустика</button>
+                    </li>
+                    <li style="display: inline-block; margin: 0 10px;">
+                        <button onclick="scrollToCategory('appliances')">Бытовая техника</button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- ПЕРЕЧЕНЬ ТОВАРОВ -->
+            <section class="services">
+                <h2>Перечень товаров</h2>
+
+                <h3 id="smartphones">Смартфоны</h3>
+                <div class="products">
+                    <a href="prodyct/Phone/iphone-15/iphone-15-pro-max.html" class="product">
+                        <img src="prodyct/Phone/iphone-15/iphone-15.jpg" alt="iPhone 15 Pro Max">
+                        <div class="info">
+                            <p class="name">iPhone 15 Pro Max</p>
+                            <p class="price">4 900 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Phone/samsung-s23/samsung-galaxy-s23-ultra.html" class="product">
+                        <img src="prodyct/Phone/samsung-s23/samsung-s23.webp" alt="Samsung Galaxy S23 Ultra">
+                        <div class="info">
+                            <p class="name">Samsung Galaxy S23 Ultra</p>
+                            <p class="price">4 500 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Phone/xiaomi-13pro/xiaomi-13-pro.html" class="product">
+                        <img src="prodyct/Phone/xiaomi-13pro/xiaomi-13pro.jpg" alt="Xiaomi 13 Pro">
+                        <div class="info">
+                            <p class="name">Xiaomi 13 Pro</p>
+                            <p class="price">3 200 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Phone/google-pixel-7/google-pixel-7.html" class="product">
+                        <img src="prodyct/Phone/google-pixel-7/google-pixel-7.jpeg" alt="Google Pixel 7">
+                        <div class="info">
+                            <p class="name">Google Pixel 7</p>
+                            <p class="price">2 800 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Phone/oneplus-11/oneplus-11.html" class="product">
+                        <img src="prodyct/Phone/oneplus-11/oneplus-11.jpg" alt="OnePlus 11">
+                        <div class="info">
+                            <p class="name">OnePlus 11</p>
+                            <p class="price">2 900 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Phone/realme-11pro/realme-11pro.html" class="product">
+                        <img src="prodyct/Phone/realme-11pro/realme-11pro.jpg" alt="Realme 11 Pro">
+                        <div class="info">
+                            <p class="name">Realme 11 Pro</p>
+                            <p class="price">1 500 BYN</p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 id="laptops">Ноутбуки</h3>
+                <div class="products">
+                    <a href="prodyct/NoteBool/MacBook-Pro-16/MacBook-Pro-16.html" class="product">
+                        <img src="prodyct/NoteBool/MacBook-Pro-16/MacBook-Pro-16.jpg" alt="Apple MacBook Pro 16">
+                        <div class="info">
+                            <p class="name">Apple MacBook Pro 16</p>
+                            <p class="price">8 500 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/NoteBool/ROG-Zephyrus-G14/ROG-Zephyrus-G14.html" class="product">
+                        <img src="prodyct/NoteBool/ROG-Zephyrus-G14/ROG-Zephyrus-G14.jpg" alt="ASUS ROG Zephyrus G14">
+                        <div class="info">
+                            <p class="name">ASUS ROG Zephyrus G14</p>
+                            <p class="price">6 700 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/NoteBool/Dell-XPS-15/Dell-XPS-15.html" class="product">
+                        <img src="prodyct/NoteBool/Dell-XPS-15/Dell-XPS-15.avif" alt="Dell XPS 15">
+                        <div class="info">
+                            <p class="name">Dell XPS 15</p>
+                            <p class="price">7 200 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/NoteBool/ThinkPad-X1-Carbon/ThinkPad-X1-Carbon.html" class="product">
+                        <img src="prodyct/NoteBool/ThinkPad-X1-Carbon/ThinkPad-X1-Carbon.jpg" alt="Lenovo ThinkPad X1 Carbon">
+                        <div class="info">
+                            <p class="name">Lenovo ThinkPad X1 Carbon</p>
+                            <p class="price">6 000 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/NoteBool/HP-Spectre-x360/HP-Spectre-x360.html" class="product">
+                        <img src="prodyct/NoteBool/HP-Spectre-x360/HP-Spectre-x360.avif" alt="HP Spectre x360">
+                        <div class="info">
+                            <p class="name">HP Spectre x360</p>
+                            <p class="price">5 800 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/NoteBool/lenovo-ideapad-gaming-3/lenovo-ideapad-gaming-3.html" class="product">
+                        <img src="prodyct/NoteBool/lenovo-ideapad-gaming 3/lenovo-ideapad-gaming 3.jpg" alt="Lenovo Ideapad Gaming 3">
+                        <div class="info">
+                            <p class="name">Lenovo Ideapad Gaming 3</p>
+                            <p class="price">4 000 BYN</p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 id="tvs">Телевизоры</h3>
+                <div class="products">
+                    <a href="prodyct/TVs/Samsung-QLED-65/Samsung-QLED-65.html" class="product">
+                        <img src="prodyct/TVs/Samsung-QLED-65/Samsung-QLED-65.jpg" alt="Samsung QLED 65">
+                        <div class="info">
+                            <p class="name">Samsung QLED 65"</p>
+                            <p class="price">4 300 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/TVs/LG-OLED-C2-55/LG-OLED-C2-55.html" class="product">
+                        <img src="prodyct/TVs/LG-OLED-C2-55/LG-OLED-C2-55.jpg" alt="LG OLED C2 55">
+                        <div class="info">
+                            <p class="name">LG OLED C2 55"</p>
+                            <p class="price">3 900 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/TVs/Sony-Bravia-XR-77/Sony-Bravia-XR-77.html" class="product">
+                        <img src="prodyct/TVs/Sony-Bravia-XR-77/Sony-Bravia-XR-77.jpg" alt="Sony Bravia XR 77">
+                        <div class="info">
+                            <p class="name">Sony Bravia XR 77"</p>
+                            <p class="price">7 500 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/TVs/Xiaomi-Mi-TV-50/Xiaomi-Mi-TV-50.html" class="product">
+                        <img src="prodyct/TVs/Xiaomi-Mi-TV-50/Xiaomi-Mi-TV-50.jpg" alt="Xiaomi Mi TV 50">
+                        <div class="info">
+                            <p class="name">Xiaomi Mi TV 50"</p>
+                            <p class="price">2 200 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/TVs/Philips-Ambilight-70/Philips-Ambilight-70.html" class="product">
+                        <img src="prodyct/TVs/Philips-Ambilight-70/Philips-Ambilight-70.webp" alt="Philips Ambilight 70">
+                        <div class="info">
+                            <p class="name">Philips Ambilight 70"</p>
+                            <p class="price">5 000 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/TVs/Hisense-ULED-55/Hisense-ULED-55.html" class="product">
+                        <img src="prodyct/TVs/Hisense-ULED-55/Hisense-ULED-55.jpg" alt="Hisense ULED 55">
+                        <div class="info">
+                            <p class="name">Hisense ULED 55"</p>
+                            <p class="price">3 300 BYN</p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 id="audio">Наушники и акустика</h3>
+                <div class="products">
+                    <a href="prodyct/Audio/Apple-AirPods-Pro-2/Apple-AirPods-Pro-2.html" class="product">
+                        <img src="prodyct/Audio/Apple-AirPods-Pro-2/Apple-AirPods-Pro-2.jpg" alt="Apple AirPods Pro 2">
+                        <div class="info">
+                            <p class="name">Apple AirPods Pro 2</p>
+                            <p class="price">950 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Audio/Sony-WH-1000XM5/Sony-WH-1000XM5.html" class="product">
+                        <img src="prodyct/Audio/Sony-WH-1000XM5/Sony-WH-1000XM5.jpg" alt="Sony WH-1000XM5">
+                        <div class="info">
+                            <p class="name">Sony WH-1000XM5</p>
+                            <p class="price">1 200 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Audio/Bose-QuietComfort-45/Bose-QuietComfort-45.html" class="product">
+                        <img src="prodyct/Audio/Bose-QuietComfort-45/Bose-QuietComfort-45.jpg" alt="Bose QuietComfort 45">
+                        <div class="info">
+                            <p class="name">Bose QuietComfort 45</p>
+                            <p class="price">1 300 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Audio/JBL-Charge-5/JBL-Charge-5.html" class="product">
+                        <img src="prodyct/Audio/JBL-Charge-5/JBL-Charge-5.jpg" alt="JBL Charge 5">
+                        <div class="info">
+                            <p class="name">JBL Charge 5</p>
+                            <p class="price">600 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Audio/Marshall-Acton-II/Marshall-Acton-II.html" class="product">
+                        <img src="prodyct/Audio/Marshall-Acton-II/Marshall-Acton-II.jpg" alt="Marshall Acton II">
+                        <div class="info">
+                            <p class="name">Marshall Acton II</p>
+                            <p class="price">1 000 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Audio/Samsung-Galaxy-Buds-2-Pro/Samsung-Galaxy-Buds-2-Pro.html" class="product">
+                        <img src="prodyct/Audio/Samsung-Galaxy-Buds-2-Pro/Samsung-Galaxy-Buds-2-Pro.jpg" alt="Samsung Galaxy Buds 2 Pro">
+                        <div class="info">
+                            <p class="name">Samsung Galaxy Buds 2 Pro</p>
+                            <p class="price">850 BYN</p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 id="appliances">Бытовая техника</h3>
+                <div class="products">
+                    <a href="prodyct/Appliances/Roborock-S7/Roborock-S7.html" class="product">
+                        <img src="prodyct/Appliances/Roborock-S7/Roborock-S7.jpg" alt="Робот-пылесос Roborock S7">
+                        <div class="info">
+                            <p class="name">Робот-пылесос Roborock S7</p>
+                            <p class="price">2 000 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Appliances/Samsung-Family-Hub/Samsung-Family-Hub.html" class="product">
+                        <img src="prodyct/Appliances/Samsung-Family-Hub/Samsung-Family-Hub.webp" alt="Смарт-холодильник Samsung Family Hub">
+                        <div class="info">
+                            <p class="name">Смарт-холодильник Samsung Family Hub</p>
+                            <p class="price">6 500 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Appliances/DeLonghi-Magnifica/DeLonghi-Magnifica.html" class="product">
+                        <img src="prodyct/Appliances/DeLonghi-Magnifica/DeLonghi-Magnifica.jpg" alt="Кофемашина De'Longhi Magnifica">
+                        <div class="info">
+                            <p class="name">Кофемашина De'Longhi Magnifica</p>
+                            <p class="price">2 300 BYN</p>
+                        </div>
+                    </a>
+                    <a href="prodyct/Appliances/Bosch-Serie-6/Bosch-Serie-6.html" class="product">
+                        <img src="prodyct/Appliances/Bosch-Serie-6/Bosch-Serie-6.jpg" alt="Стиральная машина Bosch Serie 6">
+                        <div class="info">
+                            <p class="name">Стиральная машина Bosch Serie 6</p>
+                            <p class="price">3 500 BYN</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-info">
+            <p>Контакты: +375 259-44 35 20</p>
+            <a href="#top" style="display: inline-block; padding: 10px 20px; background-color: #0f1e2ea1; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px;">
+                Перейти в начало страницы
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS STORE</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключение Font Awesome через CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Стили для заголовков */
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 28px;
+        }
+
+        /* Рейтинг с звездочками */
+        .star-rating {
+            display: inline-flex;
+            direction: row;
+            margin-left: 10px;
+        }
+        .star-rating i {
+            font-size: 18px;
+            color: #ffd700; /* Золотой цвет для звездочек */
+            margin-right: 2px;
+        }
+
+        /* Стили для отзывов */
+        .reviews {
+            text-align: left;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+        }
+        .review-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 5px solid #007BFF;
+        }
+        .review-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .review-text {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Адаптация под мобильные устройства */
+        @media screen and (max-width: 768px) {
+            .reviews {
+                width: 95%;
+                padding: 15px;
+            }
+            .review-title {
+                font-size: 16px;
+            }
+            .review-text {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                font-size: 20px;
+                padding: 10px;
+            }
+            .reviews {
+                width: 98%;
+                padding: 10px;
+            }
+            .review-title {
+                font-size: 14px;
+            }
+            .review-text {
+                font-size: 12px;
+            }
+            a.scroll-to-top {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a id="top"></a>
+
+    <header>
+        <div class="logo">
+            <h1>DSS STORE</h1>
+        </div>
+        <div class="logo">
+            <img src="IMAGE/DSS_STORE.png" alt="Логотип DSS STORE">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Товары</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <!-- ОТЗЫВЫ -->
+            <section class="reviews">
+                <h2 style="text-align: center;">Отзывы покупателей</h2>
+            
+                <div class="review-item">
+                    <div class="review-title">Отличный магазин с хорошими ценами!</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="review-text">Покупал здесь смартфон, остался очень доволен. Цена была ниже, чем у конкурентов, доставка быстрая.</div>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-title">Широкий ассортимент и качественное обслуживание</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">Заказывал ноутбук и наушники – всё пришло в заводской упаковке, без повреждений. Рекомендую!</div>
+                </div>
+    
+                <div class="review-item">
+                    <div class="review-title">Хороший магазин, но есть нюансы.</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="review-text">Покупал планшет, всё устроило, но доставка немного затянулась.</div>
+                </div>
+    
+                <div class="review-item">
+                    <div class="review-title">Лучший магазин электроники!</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">Не первый раз заказываю здесь, всегда всё на высоте! Отличное обслуживание и оригинальная техника.</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-title">Хорошие цены, но есть проблемы с доставкой</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="review-text">Цены на технику у этого магазина отличные, но доставка задержалась на несколько дней. В остальном, всё хорошо.</div>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-title">Качество на высоте, но цена чуть завышена</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="review-text">Качество товаров отличное, но на мой взгляд, цены чуть выше, чем у других магазинов. Однако доставка быстрая, все пришло вовремя.</div>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-title">Неудовлетворён сервисом</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="review-text">Заказал смартфон, но при получении оказалось, что товар не тот, что я заказывал. Разочарован обслуживанием и процессом возврата товара.</div>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-title">Отличная покупка!</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">Очень доволен покупкой! Купил телевизор, всё пришло в целости и сохранности, доставка была быстрой. Рекомендую магазин!</div>
+                </div>
+                
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-info">
+            <p>Контакты: +375 259-44 35 20</p>
+            <a href="#top" style="display: inline-block; padding: 10px 20px; background-color: #0f1e2ea1; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px;">
+                Перейти в начало страницы
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

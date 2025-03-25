@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS STORE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Стили для основного контента */
+.main-content {
+    padding: 20px;
+}
+
+.main-content p {
+    margin: 10px 0;
+}
+
+/* Стили для формы обратной связи */
+.contact-form {
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для полей ввода и текстовой области */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+    background-color: #e6f7ff;
+    border-color: #007BFF;
+}
+
+/* Стили для дополнительных элементов */
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.contact-form .form-group.checkbox-group label {
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.contact-form .form-group.checkbox-group input[type="checkbox"] {
+    margin: 0;
+}
+
+/* Адаптация для планшетов (максимальная ширина 1024px) */
+@media screen and (max-width: 1024px) {
+    .contact-form {
+        max-width: 90%;
+        padding: 20px;
+    }
+    
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .contact-form input[type="submit"] {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Адаптация для мобильных устройств (максимальная ширина 768px) */
+@media screen and (max-width: 768px) {
+    .contact-form {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .contact-form input[type="submit"] {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .contact-form .form-group.checkbox-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-form .form-group.checkbox-group label {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+/* Адаптация для маленьких экранов (максимальная ширина 480px) */
+@media screen and (max-width: 480px) {
+    .contact-form {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .contact-form input[type="submit"] {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .contact-form label {
+        font-size: 14px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <a id="top"></a>
+
+
+    <header>
+        <div class="logo">
+            <h1>DSS STORE</h1>
+        </div>
+        <div class="logo">
+            <img src="IMAGE/DSS_STORE.png" alt="Логотип DSS STORE">
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Товары</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="content">
+            <section class="main-content">
+                <h2>Обратная связь</h2>
+                <form action="#" method="post" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Категория обращения:</label>
+                        <select id="category" name="category" required>
+                            <option value="">Выберите категорию</option>
+                            <option value="support">Техническая поддержка</option>
+                            <option value="sales">Вопросы по продажам</option>
+                            <option value="feedback">Обратная связь</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Подписаться на рассылку</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="callback" name="callback">
+                        <label for="callback">Заказать обратный звонок</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Сообщение:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Отправить">
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <p>Контакты: +375 259-44 35 20</p>
+            <a href="#top" style="display: inline-block; padding: 10px 20px; background-color: #0f1e2ea1; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px;">
+                Перейти в начало страницы
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
